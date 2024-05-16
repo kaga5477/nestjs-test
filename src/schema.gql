@@ -1,0 +1,75 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateUserInput {
+  displayName: String
+  password: String!
+  username: String!
+}
+
+input CreateUserSettingsInput {
+  receiveEmails: Boolean = false
+  receiveNotifications: Boolean = false
+  userId: Int!
+}
+
+type LoginReturnResult {
+  data: User
+  token: String
+}
+
+type Mutation {
+  createUser(createUserData: CreateUserInput!): UserReturnResult!
+  createUserSettings(createUserSettingsData: CreateUserSettingsInput!): UserSettingReturnResult!
+  deleteUserById(id: Float!): UserReturnResult!
+  editUserById(updateUserData: UpdateUserInput!): UserReturnResult!
+  editUserSettingsByUserId(updateUserSettingData: UpdateUserSettingsInput!): UserSettingReturnResult!
+  login(password: String!, username: String!): LoginReturnResult!
+  signup(createUserData: CreateUserInput!): UserReturnResult!
+}
+
+type Query {
+  getAllUserSettings: [UserSetting!]!
+  getUserById(id: Int!): UserReturnResult
+  getUsers: [User!]!
+}
+
+input UpdateUserInput {
+  displayName: String
+  id: Int!
+  password: String
+  username: String
+}
+
+input UpdateUserSettingsInput {
+  receiveEmails: Boolean
+  receiveNotifications: Boolean
+  userId: Int!
+}
+
+type User {
+  displayName: String
+  id: Int!
+  password: String
+  settings: UserSetting
+  username: String!
+}
+
+type UserReturnResult {
+  data: User
+  message: String
+  statusCode: Int!
+}
+
+type UserSetting {
+  receiveEmails: Boolean!
+  receiveNotifications: Boolean!
+  userId: Int!
+}
+
+type UserSettingReturnResult {
+  data: UserSetting
+  message: String
+  statusCode: Int!
+}
