@@ -3,8 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { save } from 'postgre';
 import { User } from 'src/graphql/models/User';
 import { UserSetting } from 'src/graphql/models/UserSetting';
-import { CreateUserSettingsInput } from 'src/graphql/utils/CreateUserSettingsInput';
-import { UpdateUserSettingsInput } from 'src/graphql/utils/UpdateUserSettingInput';
+import { CreateUserSettingsInput } from 'src/graphql/inputs/CreateUserSettingsInput';
+import { UpdateUserSettingsInput } from 'src/graphql/inputs/UpdateUserSettingInput';
 import { Repository } from 'typeorm';
 
 @Injectable()

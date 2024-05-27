@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreateUserInput } from 'src/graphql/utils/CreateUserInput';
+import { CreateUserInput } from 'src/graphql/inputs/CreateUserInput';
 import { UserService } from 'src/users/User.service';
 import { hash } from 'bcryptjs';
 

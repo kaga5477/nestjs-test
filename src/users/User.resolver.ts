@@ -9,11 +9,11 @@ import {
 } from '@nestjs/graphql';
 import { User } from '../graphql/models/User';
 import { UserSetting } from '../graphql/models/UserSetting';
-import { CreateUserInput } from '../graphql/utils/CreateUserInput';
+import { CreateUserInput } from '../graphql/inputs/CreateUserInput';
 import { UserService } from './User.service';
 import { UserSettingService } from './UserSetting.service';
-import { UserReturnResult } from 'src/graphql/utils/UserReturnResult';
-import { UpdateUserInput } from 'src/graphql/utils/UpdateUserInput';
+import { UserReturnResult } from 'src/graphql/returns/UserReturnResult';
+import { UpdateUserInput } from 'src/graphql/inputs/UpdateUserInput';
 import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/guards/jwt-auth-guard';
 

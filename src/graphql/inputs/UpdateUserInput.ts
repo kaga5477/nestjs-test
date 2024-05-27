@@ -10,7 +10,4 @@ export class UpdateUserInput {
 
     @Field({nullable: true})
     displayName?: string
-
-    @Field({nullable: true})
-    password?: string
 }

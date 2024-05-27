@@ -46,9 +46,11 @@ Create an .env file before run
 DB_HOST=localhost
 DB_PORT=5432
 DB_USERNAME=postgres
-DB_PASSWORD=123456
+DB_PASSWORD=postgres
 DB_NAME=postgres
 DB_SYNC=true
+JWT_SECRET=SECRET
+JWT_EXP=2h
 ```
 
 ```bash

@@ -4,7 +4,7 @@ import { JwtStrategy } from 'src/guards/passport-strategy';
 import { UserModule } from 'src/users/users.module';
 import { AuthenticateService } from './auth.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthResolver } from './auth.resolver';
+import { AuthResolver } from './auth-signup.resolver';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UserService } from 'src/users/User.service';
 import { User } from 'src/graphql/models/User';

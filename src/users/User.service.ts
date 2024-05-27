@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/graphql/models/User';
-import { CreateUserInput } from 'src/graphql/utils/CreateUserInput';
-import { UpdateUserInput } from 'src/graphql/utils/UpdateUserInput';
+import { CreateUserInput } from 'src/graphql/inputs/CreateUserInput';
+import { UpdateUserInput } from 'src/graphql/inputs/UpdateUserInput';
 import { Repository } from 'typeorm';
 
 @Injectable()
