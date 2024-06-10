@@ -13,7 +13,7 @@ export class AuthenticateService {
     const user = await this.userService.getByUsername(username);
     if (!user) {
         return {
-            token: 'cant find user',
+            token: 'Cannot find user',
             data: null,
           };
     }

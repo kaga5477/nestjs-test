@@ -1,9 +1,11 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/graphql/models/User';
-import { CreateUserInput } from 'src/graphql/inputs/CreateUserInput';
-import { UpdateUserInput } from 'src/graphql/inputs/UpdateUserInput';
+import { CreateUserInput } from 'src/graphql/dtos/CreateUserInput';
+import { UpdateUserInput } from 'src/graphql/dtos/UpdateUserInput';
 import { Repository } from 'typeorm';
+import { ChangePasswordInput } from 'src/graphql/dtos/ChangePasswordInput';
+import { compare, hash } from 'bcryptjs';
 
 @Injectable()
 export class UserService {
@@ -140,6 +142,47 @@ export class UserService {
       return {
         statusCode: 200,
         message: `Edit user successfully.`,
+        data: updatedUser,
+      };
+    } catch (error) {
+      return {
+        statusCode: 500,
+        message: error.message || 'Internal Server Error',
+      };
+    }
+  }
+
+  async changePassword(updatePassword: ChangePasswordInput) {
+    try {
+      const user = await this.userRepository.findOne({
+        where: { id: updatePassword.id },
+      });
+
+      if (!user) {
+        return {
+          statusCode: 404,
+          message: `User not found.`,
+        };
+      }
+
+      const passwordHasMatch = await compare(updatePassword.password, user.password);
+      if (!passwordHasMatch) {
+        return {
+          statusCode: 500,
+          message: `Password is not correct.`,
+        };
+      }
+      // Update the existing user with the new data
+      
+      const newPassword = await hash(updatePassword.newPassword, 8);
+      updatePassword.password = newPassword
+      this.userRepository.merge(user, updatePassword);
+
+      const updatedUser = await this.userRepository.save(user);
+
+      return {
+        statusCode: 200,
+        message: `Password changed successfully.`,
         data: updatedUser,
       };
     } catch (error) {

@@ -4,7 +4,7 @@ import { AuthenticateService } from './auth.service';
 import { LoginReturnResult } from '../graphql/returns/LoginReturnResult';
 import { UserService } from 'src/users/User.service';
 import { SignUpService } from './signup.service';
-import { CreateUserInput } from 'src/graphql/inputs/CreateUserInput';
+import { CreateUserInput } from 'src/graphql/dtos/CreateUserInput';
 import { UserReturnResult } from 'src/graphql/returns/UserReturnResult';
 
 @Resolver((of) => User)

@@ -2,6 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input ChangePasswordInput {
+  id: Int!
+  newPassword: String!
+  password: String!
+}
+
 input CreateUserInput {
   displayName: String
   password: String!
@@ -20,6 +26,7 @@ type LoginReturnResult {
 }
 
 type Mutation {
+  changePassword(updatePassword: ChangePasswordInput!): UserReturnResult!
   createUser(createUserData: CreateUserInput!): UserReturnResult!
   createUserSettings(createUserSettingsData: CreateUserSettingsInput!): UserSettingReturnResult!
   deleteUserById(id: Float!): UserReturnResult!

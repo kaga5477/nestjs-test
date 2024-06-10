@@ -1,9 +1,9 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { UserSetting } from '../graphql/models/UserSetting';
-import { CreateUserSettingsInput } from '../graphql/inputs/CreateUserSettingsInput';
+import { CreateUserSettingsInput } from '../graphql/dtos/CreateUserSettingsInput';
 import { UserSettingService } from 'src/users/UserSetting.service';
 import { UserSettingReturnResult } from 'src/graphql/returns/UserSettingReturnResult';
-import { UpdateUserSettingsInput } from 'src/graphql/inputs/UpdateUserSettingInput';
+import { UpdateUserSettingsInput } from 'src/graphql/dtos/UpdateUserSettingInput';
 
 @Resolver()
 export class UserSettingResolver {
